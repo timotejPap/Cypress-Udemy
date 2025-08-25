@@ -1,6 +1,6 @@
 // Concatination and Interpolation
-var itemName = "Table";
-var price = 60;
+var itemName = "Desk";
+var price = 100;
 var messageToPrint =
   "The price for your " + itemName + " is " + price + " Euros."; // Concatination
 var messageToPrint2 = `The price for your ${itemName} is ${price} Euros.`; // Interpolation
