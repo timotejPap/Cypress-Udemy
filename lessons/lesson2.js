@@ -1,4 +1,5 @@
 // Concatination and Interpolation
+
 var itemName = "Desk";
 var price = 100;
 var messageToPrint =

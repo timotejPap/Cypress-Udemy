@@ -1,4 +1,5 @@
 // Hello World lesson
+
 console.log("Hello, World!");
 
 // Variables
