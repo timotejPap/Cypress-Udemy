@@ -30,16 +30,34 @@ it("Hello World", () => {
     // locator by combination of Attribute
     cy.get('[placeholder="Email"][fullwidth]')
     cy.get('input[placeholder="Email"]')
-    
+
     // find by data-cy attribute
     cy.get('[data-cy="inputEmail1"]')
-
-
 });
 
+it.only("Cypress locator methods", () => {
+    //theory
+    // get() - find element in entire page (all elements)
+    // find() - find element within another element - child elements
+    // contains() - find web element with specific text
+    // - get first one if multiple found!
+    // - it is case sensitive!
 
+    cy.contains("Sign in"); // get first element with this text = first "Sign in" button
+    cy.contains('[status="warning"]', "Sign in"); // get first element with this text and this attribute = second "Sign in" button
+    cy.contains("nb-card", "Horizontal form");
 
+    cy.contains("nb-card", "Horizontal form").find("button"); // will find all buttons in the card
+    cy.contains("nb-card", "Horizontal form").contains("Sign in"); // will find first "Sign in" button in the card
+    cy.contains("nb-card", "Horizontal form").get("button"); // will find all buttons in the page, not only in the card
 
+    cy.contains("nb-card", "Using the Grid").find(".row").find("button"); // will find all buttons in the card
+
+    cy.get("nb-card").find("nb-radio-group").contains("Option 1");// will get "Option 1" radio button
+    cy.get("nb-card nb-radio-group").contains("Option 1"); // same as above, but without find() - simplier
+
+    cy.get('nb-card > nb-card-body [placeholder="Jane Doe"]') // direct child selector
+});
 
 
 // it("Hello World2", () => {
