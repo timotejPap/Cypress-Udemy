@@ -30,10 +30,10 @@ it("Hello World", () => {
 
     // locator by combination of Attribute
     cy.get('[placeholder="Email"][fullwidth]')
-    cy.get('input[placeholder="Email"]')
+    cy.get('input[placeholder="Email"]') // tag and attribute
 
     // find by data-cy attribute
-    cy.get('[data-cy="inputEmail1"]')
+    cy.get('[data-cy="inputEmail1"]') // recommended for testing
 });
 
 
@@ -95,8 +95,14 @@ it("Hello World2", () => {
 })
 // PARENT ELEMENTS
 
-it.only("Parent elements", () => {
+it("Parent elements", () => {
     cy.get("#inputEmail1").parents("form").find("button") // first unique element, then go to parent form, then find button in the form
     cy.contains("Using the Grid").parents("nb-card").find("button"); // first unique element, then go to parent "nb-card", then find button in the card
     cy.get("#inputEmail1").parentsUntil("nb-card-body").find("button") // will go up the DOM tree until "form", then find button in the form
+});
+
+// CHAINING COMMANDS
+it("Chain commands", () => {
+    cy.get("#inputEmail1").parents("form").find("button").click()
+    cy.get("#inputEmail1").parents("form").find("nb-radio").first().should("have.text", "Option 1"); // chaining commands
 });
