@@ -19,7 +19,7 @@ it("Table row age update", () => {
 });
 
 // 2. how to find by index
-it.only("Table row input", () => {
+it("Table row input", () => {
   cy.get(".nb-plus").click();
   cy.get("thead tr")
     .eq(2)
@@ -44,4 +44,21 @@ it.only("Table row input", () => {
       cy.wrap(tableColumns).eq(4).should("contain", "Timi");
       cy.wrap(tableColumns).eq(5).should("contain", "timotej.pap@example.com");
     });
+});
+
+// 3. looping through table rows
+
+it.only("Table row delete", () => {
+  const ages = [20, 30, 40, 200];
+  cy.wrap(ages).each((age) => {
+    cy.get('[placeholder="Age"]').clear().type(age);
+    cy.wait(500);
+    cy.get("tbody tr").each((tableRow) => {
+      if (age == 200) {
+        cy.wrap(tableRow).should("contain.text", "No data found");
+      } else {
+        cy.wrap(tableRow).find("td").last().should("have.text", age);
+      }
+    });
+  });
 });
