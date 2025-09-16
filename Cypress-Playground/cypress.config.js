@@ -3,7 +3,8 @@ import { defineConfig } from "cypress";
 export default defineConfig({
   e2e: {
     baseUrl: "https://playground.bondaracademy.com/",
-    setupNodeEvents(on, config) {
+    setupNodeEvents(_on, _config) {
+      specPattern = "cypress/e2e/**/*.cy.js";
       // implement node event listeners here
     },
   },
