@@ -6,7 +6,6 @@ class NavigationPage {
 
   datepickerPage() {
     cy.contains("Forms").click();
-    // cy.wait(500);
     cy.contains("Datepicker").click();
   }
 
