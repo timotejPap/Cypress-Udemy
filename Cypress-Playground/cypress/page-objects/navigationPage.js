@@ -1,9 +1,12 @@
 function selectGroupMenuItem(groupItemName) {
+  // function for group item visibility
   cy.contains("a", groupItemName)
     .invoke("attr", "aria-expanded")
     .then((attr) => {
+      // get the attribute value
       if (attr.includes("false")) {
-        cy.contains("a", groupItemName).click();
+        // check if the group is not visible
+        cy.contains("a", groupItemName).click(); // click if not visible
       }
     });
 }
