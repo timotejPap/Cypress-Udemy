@@ -25,3 +25,6 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import "cypress-iframe";
+Cypress.Commands.add("openHomePage", () => {
+  cy.visit("/");
+});
