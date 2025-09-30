@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-it("waiting for browser API", () => {
+it("Waiting for browser API", () => {
   cy.intercept("GET", "**/articles*").as("getArticlesAPI");
   cy.loginToApplication();
   cy.wait("@getArticlesAPI").then((apiArticleObject) => {
