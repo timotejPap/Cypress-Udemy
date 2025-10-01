@@ -5,8 +5,6 @@ it("API test", () => {
   //   fixture: "tags.json",
   // });
   cy.loginToApplication(); // custom command
-  cy.intercept({ method: "GET", pathname: "tags" }, { fixture: "tags.json" });
-  cy.intercept("GET", "**/articles?limit=10&offset=0", {
-    fixture: "articles.json",
-  });
+  cy.intercept("GET", "**/tags", { fixture: "tags.json" });
+  cy.intercept("GET", "**/articles*", { fixture: "articles.json" });
 });
