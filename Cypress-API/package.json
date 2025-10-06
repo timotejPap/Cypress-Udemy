@@ -1,7 +1,8 @@
 {
   "name": "cypress-api",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:run_spec": "cypress run --spec 'cypress/e2e/60E2EtestApi.cy.js' --browser edge --headed"
   },
   "devDependencies": {
     "cypress": "^15.2.0"

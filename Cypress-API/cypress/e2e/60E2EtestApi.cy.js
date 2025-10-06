@@ -29,7 +29,7 @@ it("Delete an article", () => {
   cy.get("app-article-list").should("not.contain.text", "Cypress API article");
 });
 
-it("API testing E2E", () => {
+it("API testing E2E", { browser: "!edge" }, () => {
   cy.request({
     url: "https://conduit-api.bondaracademy.com/api/users/login",
     method: "POST",
